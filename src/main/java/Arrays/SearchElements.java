@@ -1,7 +1,5 @@
 package Arrays;
 
-import java.util.SequencedSet;
-
 public class SearchElements {
     public static void main(String[] args){
         int[] inputArray = {1, 2, 3, 4, 5};
