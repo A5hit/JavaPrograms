@@ -1,4 +1,4 @@
-package Selenium14DaysGring.Pages;
+package Selenium14DaysGring.Pages.Day1;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+public class HomePageProblem1 {
     private WebDriverWait wait;
 
     @FindBy(className = "post-title") private WebElement successfullLoginTitle;
     @FindBy(className = "has-text-align-center") private WebElement successfullLoginContext;
 
-    public HomePage(WebDriver driver){
+    public HomePageProblem1(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
 
