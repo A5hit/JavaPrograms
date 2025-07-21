@@ -18,11 +18,11 @@ public class DriverFactory {
         options.addArguments("--headless=new");
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().window().fullscreen();
 
     }
 
-    @AfterClass
+   // @AfterClass
     public void tearDown(){
         if(driver!=null){
             driver.quit();

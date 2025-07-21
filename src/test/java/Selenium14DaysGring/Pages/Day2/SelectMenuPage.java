@@ -11,7 +11,6 @@ import java.time.Duration;
 
 public class SelectMenuPage {
 
-    private WebDriver driver;
     private WebDriverWait wait;
 
     @FindBy(xpath = "//div[contains(text(),'Select Option')]")
