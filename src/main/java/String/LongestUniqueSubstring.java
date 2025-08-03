@@ -6,36 +6,34 @@ import java.util.HashSet;
 public class LongestUniqueSubstring {
 
     public static void main(String[] args) {
-        String inputStr = "abcabcbb";
-        String outputStr = findLongestUniqueSubstring(inputStr);
-        System.out.println("This is the Longest Unique Substring :"+outputStr);
+        System.out.println(lengthOfLongestSubstring("abcabcbb")); // 3
+        System.out.println(lengthOfLongestSubstring("bbbbb"));    // 1
+        System.out.println(lengthOfLongestSubstring("pwwkew"));   // 3
     }
 
-    public static String findLongestUniqueSubstring(String str) {
+    public static String lengthOfLongestSubstring(String str) {
         int left = 0;
-        int right = 0;
-        int maxLength = 0;
-        int startOfMax = 0;
+        int maxLenth = 0;
+        int start = 0;
 
-        HashSet<Character> seen = new HashSet<>();
+        HashSet<Character> window = new HashSet<>();
 
-        while (right<str.length()){
-            char currentChar = str.charAt(right);
-            if(!seen.contains(currentChar)){
-                seen.add(currentChar);
-                if(right-left+1>maxLength){
-                    maxLength = right-left+1;
-                    startOfMax = left;
-                }
-                right++;
-            }
-            else {
-                seen.remove(str.charAt(left));
+        for (int right = 0; right<str.length(); right++) {
+            char c = str.charAt(right);
+
+            while (window.contains(c)) {
+                window.remove(str.charAt(left));
                 left++;
             }
+
+            window.add(c);
+
+            if(right-left+1>maxLenth){
+                maxLenth = right-left+1;
+                start = left;
+            }
         }
-        return str.substring(startOfMax,startOfMax+maxLength);
-        
+        return str.substring(start,start+maxLenth);
     }
 
 }
